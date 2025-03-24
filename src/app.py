@@ -20,7 +20,7 @@ def index():
             if priority < 1 or priority > 5 or est_minutes < 1:
                 raise ValueError
         except:
-            error = "Bitte gültige Werte für Priorität (1-5) und Minuten (>0) angeben."
+            error = "Please provide valid values for priority (1-5) and minutes (>0)."
         if not error:
             due_date = datetime.fromisoformat(due_raw) if due_raw else None
             task = Task(
@@ -58,7 +58,7 @@ def update_due_date(task_id):
             if new_priority < 1 or new_priority > 5 or new_est_minutes < 1:
                 raise ValueError
         except:
-            error = "Bitte gültige Werte für Priorität (1-5) und Minuten (>0) angeben."
+            error = "Please provide valid values for priority (1-5) and minutes (>0)."
         if not error:
             new_due = datetime.fromisoformat(new_due_raw) if new_due_raw else None
             update_task_due_date(task_id, new_due, new_priority, new_est_minutes)

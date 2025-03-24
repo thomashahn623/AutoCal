@@ -17,8 +17,8 @@
     <form method="post">
         <input type="text" name="title" placeholder="Task title" required><br>
         <input type="date" name="due_date"><br>
-        <input type="number" name="priority" min="1" max="5" value="1" placeholder="Priorität"><br>
-        <input type="number" name="estimated_minutes" min="1" value="60" placeholder="Geschätzte Minuten"><br>
+        <input type="number" name="priority" min="1" max="5" value="1" placeholder="Priority"><br>
+        <input type="number" name="estimated_minutes" min="1" value="60" placeholder="Estimated minutes"><br>
         <button type="submit">Add Task</button>
     </form>
 
@@ -34,7 +34,7 @@
                 {% if task.due_date %}
                     (Due: {{ task.due_date.strftime('%Y-%m-%d') }})
                 {% endif %}
-                (Prio: {{ task.priority }}, {{ task.estimated_minutes }} Min)
+                ( Priority: {{ task.priority }}, {{ task.estimated_minutes }} min )
                 <form method="post" action="/complete/{{ task.id }}" style="display:inline;">
                     <button type="submit">Complete</button>
                 </form>
