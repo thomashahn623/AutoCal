@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AutoCal – To-Do List</title>
+    <style>
+        body { font-family: sans-serif; padding: 2rem; }
+        input, button { padding: 0.5rem; margin-top: 0.5rem; }
+        li { margin: 0.5rem 0; }
+    </style>
+</head>
+<body>
+    <h1>📝 To-Do List</h1>
+    <form method="post">
+        <input type="text" name="title" placeholder="Task title" required><br>
+        <input type="date" name="due_date"><br>
+        <button type="submit">Add Task</button>
+    </form>
+
+    <h2>Tasks</h2>
+    <ul>
+        {% for task in tasks %}
+            <li>
+                {% if task.completed %}
+                    ✅ <s>{{ task.title }}</s>
+                {% else %}
+                    ❌ {{ task.title }}
+                {% endif %}
+                {% if task.due_date %}
+                    (Due: {{ task.due_date.strftime('%Y-%m-%d') }})
+                {% endif %}
+            </li>
+        {% else %}
+            <li>No tasks yet.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
