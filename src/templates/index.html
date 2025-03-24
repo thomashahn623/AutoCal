@@ -29,6 +29,16 @@
                 {% if task.due_date %}
                     (Due: {{ task.due_date.strftime('%Y-%m-%d') }})
                 {% endif %}
+                <form method="post" action="/complete/{{ task.id }}" style="display:inline;">
+                    <button type="submit">Complete</button>
+                </form>
+                <form method="post" action="/delete/{{ task.id }}" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+                <form method="post" action="/update/{{ task.id }}" style="display:inline;">
+                    <input type="date" name="due_date">
+                    <button type="submit">Update</button>
+                </form>
             </li>
         {% else %}
             <li>No tasks yet.</li>

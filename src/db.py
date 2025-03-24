@@ -46,3 +46,21 @@ def list_tasks():
             estimated_minutes=row[4],
             completed=bool(row[5])
         ) for row in rows]
+
+def mark_task_completed(task_id):
+    with get_connection() as conn:
+        conn.execute("UPDATE tasks SET completed = 1 WHERE id = ?", (task_id,))
+        conn.commit()
+
+def remove_task(task_id):
+    with get_connection() as conn:
+        conn.execute("DELETE FROM tasks WHERE id = ?", (task_id,))
+        conn.commit()
+
+def update_task_due_date(task_id, new_due):
+    with get_connection() as conn:
+        conn.execute(
+            "UPDATE tasks SET due_date = ? WHERE id = ?",
+            (new_due.isoformat() if new_due else None, task_id)
+        )
+        conn.commit()
