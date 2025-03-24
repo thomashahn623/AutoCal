@@ -57,10 +57,16 @@ def remove_task(task_id):
         conn.execute("DELETE FROM tasks WHERE id = ?", (task_id,))
         conn.commit()
 
-def update_task_due_date(task_id, new_due):
+def update_task_due_date(task_id, new_due, new_priority, new_est_minutes):
     with get_connection() as conn:
-        conn.execute(
-            "UPDATE tasks SET due_date = ? WHERE id = ?",
-            (new_due.isoformat() if new_due else None, task_id)
-        )
+        conn.execute("""
+            UPDATE tasks
+            SET due_date = ?, priority = ?, estimated_minutes = ?
+            WHERE id = ?;
+        """, (
+            new_due.isoformat() if new_due else None,
+            new_priority,
+            new_est_minutes,
+            task_id
+        ))
         conn.commit()

@@ -11,9 +11,14 @@
 </head>
 <body>
     <h1>📝 To-Do List</h1>
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
     <form method="post">
         <input type="text" name="title" placeholder="Task title" required><br>
         <input type="date" name="due_date"><br>
+        <input type="number" name="priority" min="1" max="5" value="1" placeholder="Priorität"><br>
+        <input type="number" name="estimated_minutes" min="1" value="60" placeholder="Geschätzte Minuten"><br>
         <button type="submit">Add Task</button>
     </form>
 
@@ -29,6 +34,7 @@
                 {% if task.due_date %}
                     (Due: {{ task.due_date.strftime('%Y-%m-%d') }})
                 {% endif %}
+                (Prio: {{ task.priority }}, {{ task.estimated_minutes }} Min)
                 <form method="post" action="/complete/{{ task.id }}" style="display:inline;">
                     <button type="submit">Complete</button>
                 </form>
@@ -37,6 +43,8 @@
                 </form>
                 <form method="post" action="/update/{{ task.id }}" style="display:inline;">
                     <input type="date" name="due_date">
+                    <input type="number" name="priority" min="1" max="5" value="{{ task.priority }}">
+                    <input type="number" name="estimated_minutes" min="1" value="{{ task.estimated_minutes }}">
                     <button type="submit">Update</button>
                 </form>
             </li>
