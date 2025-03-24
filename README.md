@@ -35,6 +35,27 @@ Feedback, ideas, and contributions are welcome!
 
 ---
 
+## Getting started
+
+(1)
+```bash
+python3 -m venv venv
+source venv/bin/activate  # auf macOS/Linux
+# oder venv\Scripts\activate auf Windows
+pip install flask
+```
+
+(2)
+```bash
+export FLASK_APP=autocal
+export FLASK_ENV=development
+flask run
+```
+
+(3) Open http://
+
+---
+
 ## 📜 License
 
 AutoCal is licensed under the **Business Source License 1.1 (BSL)**.
