@@ -8,7 +8,16 @@
 /// </summary>
 public interface IAppointmentManager
 {
-    // Create a new appointment and return its ID
+    /// <summary>
+    ///     Creates a new appointment with the specified details.
+    /// </summary>
+    /// <param name="title"></param>
+    /// <param name="startTime"></param>
+    /// <param name="endTime"></param>
+    /// <param name="location"></param>
+    /// <param name="description"></param>
+    /// <param name="busyState"></param>
+    /// <returns>EventID as string.</returns>
     string CreateAppointment(string title, DateTimeOffset startTime, DateTimeOffset endTime, string location, string description, BusyState busyState);
 
     // Read an appointment by ID
