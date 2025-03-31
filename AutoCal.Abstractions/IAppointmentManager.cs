@@ -9,13 +9,13 @@
 public interface IAppointmentManager
 {
     // Create a new appointment and return its ID
-    string CreateAppointment(string title, DateTime startTime, DateTime endTime, string location, string description, BusyState busyState);
+    string CreateAppointment(string title, DateTimeOffset startTime, DateTimeOffset endTime, string location, string description, BusyState busyState);
 
     // Read an appointment by ID
     Appointment GetAppointment(string id);
 
     // Update an existing appointment
-    void UpdateAppointment(string id, string title, DateTime startTime, DateTime endTime, string location, string description, BusyState busyState);
+    void UpdateAppointment(string id, string title, DateTimeOffset startTime, DateTimeOffset endTime, string location, string description, BusyState busyState);
 
     // Delete an appointment by ID
     void DeleteAppointment(string id);
@@ -24,7 +24,7 @@ public interface IAppointmentManager
     Appointment GetAppointmentById(string id);
 
     // Retrieve all appointments within a specified time range
-    IEnumerable<Appointment> GetAppointments(DateTime start, DateTime end);
+    IEnumerable<Appointment> GetAppointments(DateTimeOffset start, DateTimeOffset end);
 }
 
 
