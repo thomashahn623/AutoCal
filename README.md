@@ -65,5 +65,6 @@ If AutoCal sounds interesting to you, feel free to:
 Let's build a smarter, privacy-respecting alternative to Motion and Reclaim – together.
 
 
+# Getting started
 ## Editor Config - Format On Save
 VS Code Setting: @id:omnisharp.enableEditorConfigSupport @id:editor.formatOnSave @id:omnisharp.useEditorFormattingSettings 
