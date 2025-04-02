@@ -1,13 +1,12 @@
 namespace AutoCal.Abstractions;
 
-// Represents an appointment (can be extended as needed)
-public class Appointment
+public interface IAppointment
 {
-    public string Id { get; set; }
-    public string Title { get; set; }
-    public DateTimeOffset StartTime { get; set; }
-    public DateTimeOffset EndTime { get; set; }
-    public string Location { get; set; }
-    public string Description { get; set; }
-    public BusyState BusyState { get; set; }
+    string Id { get; set; }
+    string Title { get; set; }
+    string Description { get; set; }
+    DateTimeOffset StartTime { get; set; }
+    DateTimeOffset EndTime { get; set; }
+    BusyState BusyState { get; set; }
+    List<string> Categories { get; set; }
 }
